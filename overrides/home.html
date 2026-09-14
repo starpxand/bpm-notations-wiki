@@ -1,0 +1,34 @@
+{% extends "main.html" %}
+
+{% block tabs %}
+  {{ super() }}
+  <section class="lh-hero">
+    <div class="lh-hero__grid md-grid">
+      <div class="lh-hero__text">
+        <span class="lh-badge">Проектное задание · Моделирование бизнес-процессов</span>
+        <h1>Семь нотаций –<br><span>один процесс логистики</span></h1>
+        <p>
+          Мини-wiki по методам моделирования бизнес-процессов: краткое описание, элементы нотации,
+          правила составления и пример на одном и том же процессе платформы «ЛогиХаб» –
+          чтобы наглядно сравнить, что каждая нотация показывает лучше других.
+        </p>
+        <div class="lh-hero__actions">
+          <a href="{{ 'notations/flowchart/' | url }}" class="md-button md-button--primary">Начать с Flow Chart</a>
+          <a href="{{ 'comparison/' | url }}" class="md-button lh-button--ghost">Как выбрать нотацию</a>
+        </div>
+      </div>
+      <div class="lh-hero__panel">
+        <div class="lh-kpi lh-kpi--main">
+          <div class="lh-kpi__label">Нотаций в wiki</div>
+          <div class="lh-kpi__value">7</div>
+          <div class="lh-kpi__hint">Flow Chart · DFD · RAD · IDEF · ERD · UML · BPMN</div>
+        </div>
+        <div class="lh-kpi-row">
+          <div class="lh-kpi"><div class="lh-kpi__label">Процессы</div><div class="lh-kpi__value">4</div></div>
+          <div class="lh-kpi"><div class="lh-kpi__label">Данные</div><div class="lh-kpi__value">2</div></div>
+          <div class="lh-kpi"><div class="lh-kpi__label">Системы</div><div class="lh-kpi__value">1</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
