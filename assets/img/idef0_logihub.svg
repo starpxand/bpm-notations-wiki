@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1330 660" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13.5">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0b1b3f"/></marker>
+  </defs>
+  <style>
+    .blk{fill:#fff;stroke:#0b1b3f;stroke-width:2.2}
+    .t{font-weight:700;fill:#0b1b3f;font-size:15px}
+    .n{fill:#64748b;font-size:12px}
+    .ar{stroke:#0b1b3f;stroke-width:1.8;fill:none}
+    .ctl{stroke:#2f5bea}
+    .mech{stroke:#e07a2f}
+    .l{fill:#0f172a}
+    .lc{fill:#2f5bea}.lm{fill:#b45309}
+  </style>
+  <rect width="1330" height="660" fill="#fff"/>
+  <text x="20" y="30" font-size="16" font-weight="800" fill="#0b1b3f">A0 «Обработать заказ на перевозку» – декомпозиция (IDEF0)</text>
+
+  <!-- Блоки лестницей -->
+  <rect class="blk" x="190" y="110" width="200" height="90"/><text class="t" x="290" y="150" text-anchor="middle">Принять и</text><text class="t" x="290" y="170" text-anchor="middle">проверить заявку</text><text class="n" x="375" y="193">A1</text>
+  <rect class="blk" x="480" y="230" width="200" height="90"/><text class="t" x="580" y="270" text-anchor="middle">Рассчитать</text><text class="t" x="580" y="290" text-anchor="middle">и выставить счёт</text><text class="n" x="665" y="313">A2</text>
+  <rect class="blk" x="770" y="350" width="200" height="90"/><text class="t" x="870" y="390" text-anchor="middle">Скомплектовать</text><text class="t" x="870" y="410" text-anchor="middle">и отгрузить груз</text><text class="n" x="955" y="433">A3</text>
+  <rect class="blk" x="960" y="490" width="200" height="90"/><text class="t" x="1060" y="530" text-anchor="middle">Доставить</text><text class="t" x="1060" y="550" text-anchor="middle">и закрыть заказ</text><text class="n" x="1145" y="573">A4</text>
+
+  <!-- Входы (слева) -->
+  <path class="ar" d="M30 155 H188" marker-end="url(#a)"/><text class="l" x="36" y="147">Заявка клиента</text>
+  <!-- Выходы -> входы -->
+  <path class="ar" d="M390 155 H430 V275 H478" marker-end="url(#a)"/><text class="l" x="400" y="147">Проверенная заявка</text>
+  <path class="ar" d="M680 275 H720 V395 H768" marker-end="url(#a)"/><text class="l" x="690" y="267">Оплаченный заказ</text>
+  <path class="ar" d="M970 395 H1000 V470 H915 V535 H958" marker-end="url(#a)"/><text class="l" x="980" y="387">Груз + ТТН</text>
+  <!-- обратная связь: запрос уточнения -->
+  <!-- выходы наружу -->
+  <path class="ar" d="M680 300 H1310" marker-end="url(#a)"/><text class="l" x="1110" y="292">Договор-счёт клиенту</text>
+  <path class="ar" d="M1160 535 H1310" marker-end="url(#a)"/>
+  <text class="l" x="1170" y="522">Выполненный</text><text class="l" x="1170" y="555">заказ, акт, OTIF</text>
+
+  <!-- Управление (сверху) -->
+  <path class="ar ctl" d="M290 70 V108" marker-end="url(#a)"/><text class="lc" x="298" y="85">Регламент приёма заявок</text>
+  <path class="ar ctl" d="M580 70 V228" marker-end="url(#a)"/><text class="lc" x="588" y="85">Тарифы, договор</text>
+  <path class="ar ctl" d="M870 70 V348" marker-end="url(#a)"/><text class="lc" x="878" y="85">Правила комплектации</text>
+  <path class="ar ctl" d="M1060 70 V488" marker-end="url(#a)"/><text class="lc" x="1068" y="85">Окна доставки</text>
+
+  <!-- Механизмы (снизу) -->
+  <path class="ar mech" d="M290 640 V202" marker-end="url(#a)"/><text class="lm" x="298" y="632">Менеджер, сервис «Заказы»</text>
+  <path class="ar mech" d="M580 640 V322" marker-end="url(#a)"/><text class="lm" x="588" y="632">Сервис расчёта</text>
+  <path class="ar mech" d="M870 640 V442" marker-end="url(#a)"/><text class="lm" x="878" y="632">Кладовщик, сканер</text>
+  <path class="ar mech" d="M1060 640 V582" marker-end="url(#a)"/><text class="lm" x="1068" y="632">Водитель, «Трекинг»</text>
+
+  <!-- легенда ICOM -->
+  <g transform="translate(20,480)">
+    <rect x="0" y="0" width="230" height="120" rx="10" fill="#f6f8fc" stroke="#e2e8f0"/>
+    <text x="12" y="24" font-weight="700" fill="#0b1b3f">ICOM</text>
+    <text x="12" y="46" class="l">← Вход (Input) – слева</text>
+    <text x="12" y="66" class="lc">↓ Управление (Control) – сверху</text>
+    <text x="12" y="86" class="l">→ Выход (Output) – справа</text>
+    <text x="12" y="106" class="lm">↑ Механизм (Mechanism) – снизу</text>
+  </g>
+</svg>
