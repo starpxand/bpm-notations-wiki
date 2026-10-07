@@ -55,7 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../assets/extra.css?v=2">
+    
+      <link rel="stylesheet" href="../../assets/fx.css?v=2">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -313,6 +315,8 @@
         <div class="md-main__inner md-grid">
           
             
+              
+                
               
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
@@ -814,7 +818,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -901,6 +907,8 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+
 
 
   
@@ -908,9 +916,15 @@
 
 
 <h1 id="bpmn-">BPMN – нотация моделирования бизнес-процессов<a class="headerlink" href="#bpmn-" title="Permanent link">&para;</a></h1>
+<div class="lh-stats">
+<div class="lh-stat"><span>Появилась</span><b>2004; версия 2.0 – 2011, OMG</b></div>
+<div class="lh-stat"><span>Стандарт</span><b>ISO/IEC 19510</b></div>
+<div class="lh-stat"><span>Отвечает на вопрос</span><b>Кто, что, в каком порядке и при каких событиях?</b></div>
+<div class="lh-stat"><span>Сложность</span><b>средняя – высокая</b></div>
+</div>
 <h2 id="_1">Описание<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><strong>BPMN (Business Process Model and Notation)</strong> – стандарт консорциума <strong>OMG</strong> для графического
-описания бизнес-процессов. Версия <strong>2.0</strong> (2011) соответствует ISO/IEC 19510 и определяет не
+описания бизнес-процессов. Версия <strong>2.0</strong> (2011) <a href="../../sources/#src-6">[6]</a> соответствует ISO/IEC 19510 и определяет не
 только обозначения, но и XML-формат обмена моделями, поэтому диаграммы переносятся между
 инструментами и могут исполняться BPM-движками. Нотация создавалась так, чтобы её одинаково
 понимали бизнес-аналитики, разработчики и участники процесса.</p>
@@ -962,7 +976,7 @@
 </table>
 <h2 id="_3">Правила составления<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ol>
-<li>У процесса есть стартовое и конечное события; процесс читается слева направо.</li>
+<li>У процесса есть стартовое и конечное события; процесс читается слева направо <a href="../../sources/#src-4">[4]</a>.</li>
 <li>Задачи называются «глагол + объект», события – состоянием, шлюзы – вопросом с подписанными ветвями.</li>
 <li>Поток операций не пересекает границу пула; взаимодействие пулов – потоками сообщений.</li>
 <li>Ветви, разделённые шлюзом, сводятся шлюзом того же типа или завершаются своими событиями.</li>
@@ -970,9 +984,14 @@
 <li>Сложные фрагменты сворачиваются в подпроцессы, чтобы диаграмма оставалась читаемой.</li>
 </ol>
 <h2 id="_4">Пример: процесс управления логистикой<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>Полная модель с пятью дорожками, 26 этапами, шлюзами, событием-таймером и документами –
+<p>Модель с пятью дорожками, 26 этапами, шлюзами, событием-таймером и документами. Это настоящий
+файл BPMN 2.0, открытый движком bpmn-js <a href="../../sources/#src-5">[5]</a>: модель можно масштабировать
+колесом, перемещать мышью, а кнопка <strong>«▶ Пройти процесс»</strong> проводит по основному пути процесса шаг за шагом.
+Исходный файл – <a href="../../assets/logistics_process.bpmn">logistics_process.bpmn</a>; полное описание этапов –
 в <a href="https://starpxand.github.io/logihub-wiki/process/">Wiki продукта «ЛогиХаб»</a>.</p>
+<div class="lh-bpmn" data-src="../../assets/logistics_process.bpmn" data-title="BPMN 2.0 – процесс управления логистикой ЛогиХаб">
 <p><img alt="BPMN – процесс управления логистикой ЛогиХаб" src="../../assets/img/bpmn_logistics.svg" /></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Что видно и чего не видно</p>
 <p>BPMN объединяет сильные стороны остальных нотаций для процессов: как Flow Chart – порядок и
@@ -980,11 +999,11 @@
 документы. Структуру базы данных и функциональную декомпозицию лучше описывать ERD и IDEF0.</p>
 </div>
 <h2 id="_5">Ссылки<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Business Process Model and Notation (BPMN). Version 2.0 // OMG. – URL: <a href="https://www.omg.org/spec/BPMN/2.0/">https://www.omg.org/spec/BPMN/2.0/</a></li>
-<li>BPMN 2.0 Symbols Reference // Camunda. – URL: <a href="https://camunda.com/bpmn/reference/">https://camunda.com/bpmn/reference/</a></li>
-<li>bpmn.io – web-based BPMN modeler. – URL: <a href="https://bpmn.io">https://bpmn.io</a></li>
-</ul>
+<ol>
+<li>Business Process Model and Notation (BPMN). Version 2.0 / Object Management Group. – Needham, 2011. – 538 p. – URL: <a href="https://www.omg.org/spec/BPMN/2.0/">https://www.omg.org/spec/BPMN/2.0/</a> (дата обращения: 07.10.2026).</li>
+<li>BPMN 2.0 Symbols – A complete guide with examples // Camunda : сайт. – URL: <a href="https://camunda.com/bpmn/reference/">https://camunda.com/bpmn/reference/</a> (дата обращения: 07.10.2026).</li>
+<li>bpmn.io : web-based tooling for BPMN, DMN, CMMN, and Forms : сайт. – URL: <a href="https://bpmn.io">https://bpmn.io</a> (дата обращения: 07.10.2026).</li>
+</ol>
 
 
 
@@ -992,8 +1011,13 @@
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
@@ -1018,6 +1042,8 @@
         <footer class="md-footer">
   
     
+      
+        
       
       <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
         
@@ -1090,6 +1116,10 @@
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/fx.js?v=2"></script>
       
     
   </body>

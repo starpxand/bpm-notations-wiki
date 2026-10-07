@@ -55,7 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../assets/extra.css?v=2">
+    
+      <link rel="stylesheet" href="../../assets/fx.css?v=2">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -575,10 +577,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Пример: диаграмма уровня 1 для обработки заказа
+        Пример: обработка заказа в нотации Гейна – Сарсона
       
     </span>
   </a>
@@ -586,7 +588,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         Ссылки
@@ -866,10 +868,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Пример: диаграмма уровня 1 для обработки заказа
+        Пример: обработка заказа в нотации Гейна – Сарсона
       
     </span>
   </a>
@@ -877,7 +879,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         Ссылки
@@ -908,12 +910,19 @@
 
 
 <h1 id="dfd">DFD – диаграмма потоков данных<a class="headerlink" href="#dfd" title="Permanent link">&para;</a></h1>
+<div class="lh-stats">
+<div class="lh-stat"><span>Появилась</span><b>1970-е, структурный анализ</b></div>
+<div class="lh-stat"><span>Авторы нотаций</span><b>Йордон – Демарко, Гейн – Сарсон</b></div>
+<div class="lh-stat"><span>Отвечает на вопрос</span><b>Откуда и куда движутся данные?</b></div>
+<div class="lh-stat"><span>Сложность</span><b>низкая</b></div>
+</div>
 <h2 id="_1">Описание<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><strong>DFD (Data Flow Diagram)</strong> показывает, как данные поступают в систему из внешнего мира,
 как преобразуются процессами, где хранятся и куда передаются. Нотация развита в рамках
-методов структурного анализа 1970-х годов (<strong>Т. Демарко, Э. Йордон</strong>; <strong>К. Гейн и Т. Сарсон</strong>).</p>
+методов структурного анализа 1970-х годов: варианты обозначений предложили <strong>Э. Йордон и Т. Демарко</strong>
+<a href="../../sources/#src-21">[21]</a> и <strong>К. Гейн и Т. Сарсон</strong> <a href="../../sources/#src-9">[9]</a>.</p>
 <p>Диаграммы строятся <strong>иерархически</strong>: контекстная диаграмма показывает всю систему одним
-процессом и её внешние сущности, диаграммы следующих уровней раскрывают процессы.</p>
+процессом и её внешние сущности, диаграммы следующих уровней раскрывают процессы <a href="../../sources/#src-8">[8]</a>.</p>
 <p><strong>Когда применять:</strong> анализ информационных потоков, проектирование информационной системы,
 поиск дублирования данных и лишних передач.</p>
 <p><strong>Ограничения:</strong> не показывает последовательность во времени, условия и ответственных за шаги.</p>
@@ -931,19 +940,19 @@
 <tr>
 <td>Внешняя сущность</td>
 <td>прямоугольник</td>
-<td>прямоугольник с тенью</td>
+<td>прямоугольник с тенью; дубликат – с косой чертой в углу</td>
 <td>источник или получатель данных вне системы</td>
 </tr>
 <tr>
 <td>Процесс</td>
 <td>круг</td>
-<td>скруглённый прямоугольник с номером</td>
+<td>скруглённый прямоугольник с номером в верхней части</td>
 <td>преобразование входных данных в выходные</td>
 </tr>
 <tr>
 <td>Хранилище данных</td>
 <td>две параллельные линии</td>
-<td>открытый справа прямоугольник с номером D1…</td>
+<td>прямоугольник, открытый справа, с номером D1, D2…</td>
 <td>данные, сохраняемые для последующего использования</td>
 </tr>
 <tr>
@@ -962,47 +971,27 @@
 <li><strong>Балансировка уровней:</strong> входы и выходы процесса на верхнем уровне совпадают с внешними потоками его декомпозиции.</li>
 <li>Процессы нумеруются иерархически: 1, 1.1, 1.2…</li>
 <li>На диаграмме не показываются управляющие потоки и условия – только данные.</li>
+<li>Чтобы избежать пересечения линий, внешнюю сущность можно изобразить повторно – дубликат помечается косой чертой.</li>
 </ol>
-<h2 id="1">Пример: диаграмма уровня 1 для обработки заказа<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart LR
-    C[Клиент]:::ext
-    CAR[Перевозчик]:::ext
-    P1((1&lt;br&gt;Принять и&lt;br&gt;проверить заявку))
-    P2((2&lt;br&gt;Рассчитать&lt;br&gt;стоимость))
-    P3((3&lt;br&gt;Скомплектовать&lt;br&gt;груз))
-    P4((4&lt;br&gt;Организовать&lt;br&gt;доставку))
-    P5((5&lt;br&gt;Закрыть заказ&lt;br&gt;и рассчитать OTIF))
-    D1[(D1 Заказы)]
-    D2[(D2 Тарифы)]
-    D3[(D3 Остатки склада)]
-
-    C -- Заявка --&gt; P1
-    P1 -- Проверенная заявка --&gt; D1
-    D1 -- Параметры груза --&gt; P2
-    D2 -- Ставки --&gt; P2
-    P2 -- Договор-счёт --&gt; C
-    D1 -- Заказ к сборке --&gt; P3
-    D3 -- Наличие товара --&gt; P3
-    P3 -- ТТН --&gt; P4
-    P4 -- Маршрутный лист --&gt; CAR
-    CAR -- Статус доставки --&gt; P4
-    P4 -- Факт доставки --&gt; P5
-    C -- Акт приёмки --&gt; P5
-    P5 -- Признаки On Time / In Full --&gt; D1
-
-    classDef ext fill:#0b1b3f,color:#fff,stroke:#0b1b3f</code></pre>
+<h2 id="_4">Пример: обработка заказа в нотации Гейна – Сарсона<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>Контекстная диаграмма (уровень 0)</strong> – вся система одним процессом и её окружение:</p>
+<p><img alt="DFD – контекстная диаграмма" src="../../assets/img/dfd_context.svg" /></p>
+<p><strong>Диаграмма уровня 1</strong> – декомпозиция процесса 0. Внешние потоки совпадают с контекстной
+диаграммой (балансировка); оранжевые точки показывают движение данных по потокам.</p>
+<p><img alt="DFD уровня 1 – обработка заказа" src="../../assets/img/dfd_level1.svg" /></p>
 <div class="admonition note">
 <p class="admonition-title">Что видно и чего не видно</p>
 <p>DFD отвечает на вопрос «какие данные нужны и где они хранятся»: видно, что расчёт стоимости
-опирается на хранилище тарифов, а KPI OTIF формируется при закрытии заказа. Порядок шагов и
-условия (например, «заявка некорректна») на DFD не показываются.</p>
+опирается на хранилище тарифов, а признаки On Time и In Full записываются в заказ при его закрытии.
+Порядок шагов и условия (например, «заявка некорректна») на DFD не показываются.</p>
 </div>
-<h2 id="_4">Ссылки<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Data flow diagram // Wikipedia. – URL: <a href="https://en.wikipedia.org/wiki/Data-flow_diagram">https://en.wikipedia.org/wiki/Data-flow_diagram</a></li>
-<li>Yourdon E. Modern Structured Analysis. – Prentice Hall, 1989. – 672 p.</li>
-<li>What is a Data Flow Diagram // Lucidchart. – URL: <a href="https://www.lucidchart.com/pages/data-flow-diagram">https://www.lucidchart.com/pages/data-flow-diagram</a></li>
-</ul>
+<h2 id="_5">Ссылки<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Gane, C. Structured Systems Analysis : Tools and Techniques / C. Gane, T. Sarson. – Englewood Cliffs : Prentice-Hall, 1979. – 241 p.</li>
+<li>Yourdon, E. Modern Structured Analysis / E. Yourdon. – Englewood Cliffs : Yourdon Press, 1989. – 672 p.</li>
+<li>Data-flow diagram // Wikipedia : the free encyclopedia : сайт. – URL: <a href="https://en.wikipedia.org/wiki/Data-flow_diagram">https://en.wikipedia.org/wiki/Data-flow_diagram</a> (дата обращения: 07.10.2026).</li>
+<li>What Is a Data Flow Diagram? Symbols and Examples // Lucid : сайт. – URL: <a href="https://www.lucidchart.com/pages/data-flow-diagram">https://www.lucidchart.com/pages/data-flow-diagram</a> (дата обращения: 07.10.2026).</li>
+</ol>
 
 
 
@@ -1108,6 +1097,10 @@
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/fx.js?v=2"></script>
       
     
   </body>

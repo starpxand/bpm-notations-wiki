@@ -55,7 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../assets/extra.css?v=2">
+    
+      <link rel="stylesheet" href="../../assets/fx.css?v=2">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -908,18 +910,24 @@
 
 
 <h1 id="uml">UML – унифицированный язык моделирования<a class="headerlink" href="#uml" title="Permanent link">&para;</a></h1>
+<div class="lh-stats">
+<div class="lh-stat"><span>Появился</span><b>1997, OMG; версия 2.5.1 – 2017</b></div>
+<div class="lh-stat"><span>Стандарт</span><b>ISO/IEC 19505</b></div>
+<div class="lh-stat"><span>Отвечает на вопрос</span><b>Как устроена и ведёт себя программная система?</b></div>
+<div class="lh-stat"><span>Сложность</span><b>высокая</b></div>
+</div>
 <h2 id="_1">Описание<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><strong>UML (Unified Modeling Language)</strong> – графический язык для визуализации, спецификации и
 документирования программных систем. Создан в 1990-х годах объединением методов <strong>Г. Буча,
 Дж. Рамбо и А. Джекобсона</strong>, с 1997 года развивается консорциумом <strong>OMG</strong>; актуальная версия
-– <strong>UML 2.5.1</strong> (2017), соответствует стандарту ISO/IEC 19505.</p>
+– <strong>UML 2.5.1</strong> (2017) <a href="../../sources/#src-15">[15]</a>, соответствует стандарту ISO/IEC 19505.</p>
 <p>UML 2.5 определяет <strong>14 видов диаграмм</strong>, разделённых на структурные (классов, компонентов,
 развёртывания, объектов, пакетов, композитной структуры, профилей) и поведенческие
 (деятельности, прецедентов, состояний, а также диаграммы взаимодействия – последовательности,
-коммуникации, обзора взаимодействия, временная).</p>
+коммуникации, обзора взаимодействия, временная) <a href="../../sources/#src-2">[2]</a>.</p>
 <p>Для бизнес-процессов чаще всего используются <strong>диаграмма деятельности</strong> (поток действий с
-разделами-исполнителями), <strong>диаграмма прецедентов</strong> (кто и что делает с системой) и
-<strong>диаграмма последовательности</strong> (обмен сообщениями во времени).</p>
+разделами-исполнителями), <strong>диаграмма последовательности</strong> (обмен сообщениями во времени) и
+<strong>диаграмма состояний</strong> (жизненный цикл объекта, например заказа).</p>
 <p><strong>Когда применять:</strong> переход от описания процесса к проектированию программной системы,
 общение аналитиков и разработчиков.</p>
 <p><strong>Ограничения:</strong> избыточен для бизнес-пользователей; бизнес-семантика (события, документы,
@@ -940,9 +948,9 @@
 <td>начало потока</td>
 </tr>
 <tr>
-<td>Конечный узел</td>
+<td>Конечный узел деятельности</td>
 <td>круг с точкой внутри</td>
-<td>завершение деятельности</td>
+<td>завершение всей деятельности</td>
 </tr>
 <tr>
 <td>Действие</td>
@@ -973,17 +981,22 @@
 </table>
 <h2 id="_3">Правила составления<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Одна диаграмма описывает одну деятельность и имеет начальный узел.</li>
+<li>Одна диаграмма описывает одну деятельность и имеет начальный узел <a href="../../sources/#src-17">[17]</a>.</li>
 <li>Условия на выходах узла решения записываются в квадратных скобках и взаимно исключают друг друга.</li>
 <li>Параллельные ветви, открытые разветвителем, закрываются соединителем.</li>
 <li>Разделы используются, если важно, <strong>кто</strong> выполняет действие.</li>
 <li>Выбирается тот вид диаграммы, который отвечает на вопрос: поток действий – деятельность, обмен сообщениями – последовательность, жизненный цикл объекта – состояния.</li>
 </ol>
 <h2 id="_4">Примеры<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Диаграмма последовательности</label><label for="__tabbed_1_2">Диаграмма состояний заказа</label><label for="__tabbed_1_3">Диаграмма классов</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Диаграмма деятельности</label><label for="__tabbed_1_2">Диаграмма последовательности</label><label for="__tabbed_1_3">Диаграмма состояний заказа</label><label for="__tabbed_1_4">Диаграмма классов</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<pre class="mermaid"><code>sequenceDiagram
+<p>Все элементы из таблицы: разделы «Клиент – Менеджер – Склад», объектный узел «Заявка»,
+решения с условиями, слияние, параллельная работа склада и два конечных узла.</p>
+<p><img alt="UML – диаграмма деятельности «Обработка заказа»" src="../../assets/img/uml_activity.svg" /></p>
+</div>
+<div class="tabbed-block">
+<pre class="lh-mermaid"><code>sequenceDiagram
     actor К as Клиент
     participant Б as Telegram-бот
     participant З as Сервис «Заказы»
@@ -1004,23 +1017,35 @@
     end</code></pre>
 </div>
 <div class="tabbed-block">
-<pre class="mermaid"><code>stateDiagram-v2
-    [*] --&gt; Новый
-    Новый --&gt; НаУточнении: данных недостаточно
-    НаУточнении --&gt; Новый: клиент исправил
-    Новый --&gt; Подтверждён: заявка корректна
-    Подтверждён --&gt; ВПути: груз отгружен
-    ВПути --&gt; Задержан: отклонение от графика
-    Задержан --&gt; Доставлен
-    ВПути --&gt; Доставлен
-    Доставлен --&gt; Принят: без замечаний
-    Доставлен --&gt; Претензия: есть замечания
-    Принят --&gt; Закрыт
-    Претензия --&gt; Закрыт: урегулирована
-    Закрыт --&gt; [*]</code></pre>
+<pre class="lh-mermaid"><code>stateDiagram-v2
+    state "Новый" as New
+    state "На уточнении" as Clarify
+    state "Ожидает оплаты" as Confirmed
+    state "Отменён" as Cancelled
+    state "В пути" as Transit
+    state "Задержан" as Delayed
+    state "Доставлен" as Delivered
+    state "Принят" as Accepted
+    state "Претензия" as Claim
+    state "Закрыт" as Closed
+    [*] --&gt; New
+    New --&gt; Clarify: данных недостаточно
+    Clarify --&gt; New: клиент исправил
+    New --&gt; Confirmed: заявка корректна
+    Confirmed --&gt; Cancelled: нет оплаты 3 дня
+    Confirmed --&gt; Transit: оплачен, груз отгружен
+    Transit --&gt; Delayed: отклонение от графика
+    Delayed --&gt; Delivered
+    Transit --&gt; Delivered
+    Delivered --&gt; Accepted: без замечаний
+    Delivered --&gt; Claim: есть замечания
+    Accepted --&gt; Closed
+    Claim --&gt; Closed: урегулирована
+    Cancelled --&gt; [*]
+    Closed --&gt; [*]</code></pre>
 </div>
 <div class="tabbed-block">
-<pre class="mermaid"><code>classDiagram
+<pre class="lh-mermaid"><code>classDiagram
     class Order {
         +int id
         +str status
@@ -1046,17 +1071,18 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Что видно и чего не видно</p>
-<p>Диаграмма состояний UML точно описывает <strong>жизненный цикл заказа</strong> – именно эти переходы
-реализованы в Telegram-боте «ЛогиХаба». Диаграмма последовательности показывает обмен
-сообщениями между клиентом, ботом и сервисом. Бизнес-пользователю такие диаграммы читать
+<p>Диаграмма деятельности показывает поток работ с исполнителями, диаграмма состояний – <strong>жизненный
+цикл заказа</strong>, который реализован в Telegram-боте «ЛогиХаба», а диаграмма последовательности –
+обмен сообщениями между клиентом, ботом и сервисом. Бизнес-пользователю такие диаграммы читать
 сложнее, чем BPMN.</p>
 </div>
 <h2 id="_5">Ссылки<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Unified Modeling Language Specification. Version 2.5.1 // OMG. – URL: <a href="https://www.omg.org/spec/UML/2.5.1/">https://www.omg.org/spec/UML/2.5.1/</a></li>
-<li>Фаулер М. UML. Основы. Краткое руководство по стандартному языку объектного моделирования. – 3-е изд. – СПб. : Символ-Плюс, 2004. – 192 с.</li>
-<li>Sequence, state and class diagrams // Mermaid. – URL: <a href="https://mermaid.js.org/intro/">https://mermaid.js.org/intro/</a></li>
-</ul>
+<ol>
+<li>OMG Unified Modeling Language (OMG UML). Version 2.5.1 / Object Management Group. – Needham, 2017. – 796 p. – URL: <a href="https://www.omg.org/spec/UML/2.5.1/">https://www.omg.org/spec/UML/2.5.1/</a> (дата обращения: 07.10.2026).</li>
+<li>Фаулер, М. UML. Основы. Краткое руководство по стандартному языку объектного моделирования / М. Фаулер ; пер. с англ. А. Петухова. – 3-е изд. – Санкт-Петербург : Символ-Плюс, 2004. – 192 с.</li>
+<li>UML activity diagrams // UML Diagrams : сайт. – URL: <a href="https://www.uml-diagrams.org/activity-diagrams.html">https://www.uml-diagrams.org/activity-diagrams.html</a> (дата обращения: 07.10.2026).</li>
+<li>Mermaid : diagramming and charting tool : сайт. – URL: <a href="https://mermaid.js.org">https://mermaid.js.org</a> (дата обращения: 07.10.2026).</li>
+</ol>
 
 
 
@@ -1162,6 +1188,10 @@
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/fx.js?v=2"></script>
       
     
   </body>

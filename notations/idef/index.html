@@ -55,7 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../assets/extra.css?v=2">
+    
+      <link rel="stylesheet" href="../../assets/fx.css?v=2">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -620,6 +622,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#idef3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Элементы нотации IDEF3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -634,7 +647,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Пример: декомпозиция функции «Обработать заказ на перевозку»
+        Пример: функция «Обработать заказ на перевозку»
       
     </span>
   </a>
@@ -855,6 +868,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#idef3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Элементы нотации IDEF3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -869,7 +893,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Пример: декомпозиция функции «Обработать заказ на перевозку»
+        Пример: функция «Обработать заказ на перевозку»
       
     </span>
   </a>
@@ -908,9 +932,15 @@
 
 
 <h1 id="idef">IDEF – семейство методологий<a class="headerlink" href="#idef" title="Permanent link">&para;</a></h1>
+<div class="lh-stats">
+<div class="lh-stat"><span>Появилось</span><b>1970–1990-е, программа ICAM ВВС США</b></div>
+<div class="lh-stat"><span>Стандарты</span><b>FIPS PUB 183 (IDEF0), 184 (IDEF1X)</b></div>
+<div class="lh-stat"><span>Отвечает на вопрос</span><b>Что делает организация и чем это управляется?</b></div>
+<div class="lh-stat"><span>Сложность</span><b>средняя</b></div>
+</div>
 <h2 id="_1">Описание<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><strong>IDEF (Integration Definition)</strong> – семейство методологий моделирования, разработанное в
-рамках программы ВВС США ICAM в 1970–1980-х годах. Наиболее известны:</p>
+рамках программы ВВС США ICAM в 1970–1990-х годах. Для бизнес-процессов используются три методологии:</p>
 <table>
 <thead>
 <tr>
@@ -922,27 +952,28 @@
 <tbody>
 <tr>
 <td><strong>IDEF0</strong></td>
-<td>функции системы и их взаимосвязи</td>
-<td>метод SADT Д. Росса; стандарт FIPS PUB 183 (1993)</td>
+<td>функции системы, их входы, выходы, управление и ресурсы</td>
+<td>метод SADT Д. Росса; FIPS PUB 183 <a href="../../sources/#src-11">[11]</a></td>
 </tr>
 <tr>
 <td><strong>IDEF1X</strong></td>
 <td>структуру данных (реляционная модель)</td>
-<td>стандарт FIPS PUB 184 (1993)</td>
+<td>FIPS PUB 184 <a href="../../sources/#src-12">[12]</a></td>
 </tr>
 <tr>
 <td><strong>IDEF3</strong></td>
-<td>сценарии и последовательность процессов</td>
-<td>метод описания процессов с перекрёстками (junctions)</td>
+<td>сценарии и последовательность работ, логику ветвления</td>
+<td>метод описания процессов с перекрёстками <a href="../../sources/#src-10">[10]</a></td>
 </tr>
 </tbody>
 </table>
-<p>Далее рассматривается <strong>IDEF0</strong> – нотация функционального моделирования, которая чаще всего
-используется для описания бизнес-процессов «сверху вниз».</p>
+<p>Основная нотация для бизнес-процессов – <strong>IDEF0</strong>: функциональная модель «сверху вниз». Когда нужно
+показать порядок работ и ветвления, к ней добавляют <strong>IDEF3</strong>; структуру данных описывает IDEF1X
+(родственная ERD, см. раздел <a href="../erd/">ERD</a>).</p>
 <p><strong>Когда применять:</strong> описание деятельности организации на верхнем уровне, анализ того, что
 управляет функцией и какими ресурсами она выполняется, регламентация процессов.</p>
-<p><strong>Ограничения:</strong> не показывает время и последовательность выполнения (порядок блоков –
-условный), условия ветвления и роли в явном виде.</p>
+<p><strong>Ограничения:</strong> IDEF0 не показывает время и последовательность выполнения (порядок блоков –
+условный), условия ветвления и роли в явном виде; для этого используется IDEF3.</p>
 <h2 id="idef0">Элементы нотации IDEF0<a class="headerlink" href="#idef0" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -980,35 +1011,87 @@
 </tr>
 <tr>
 <td>Контекстная диаграмма A-0</td>
-<td>один блок</td>
-<td>граница и цель модели, точка зрения</td>
+<td>один блок, цель и точка зрения модели</td>
+<td>граница модели</td>
+</tr>
+<tr>
+<td>Рамка диаграммы</td>
+<td>поля «Узел», «Название», «Номер»</td>
+<td>привязка диаграммы к иерархии модели</td>
 </tr>
 </tbody>
 </table>
 <p>Четыре типа стрелок сокращённо называют <strong>ICOM</strong> (Input, Control, Output, Mechanism).</p>
+<h2 id="idef3">Элементы нотации IDEF3<a class="headerlink" href="#idef3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Элемент</th>
+<th>Обозначение</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Единица работы (UOB)</td>
+<td>прямоугольник с номером в нижнем левом поле</td>
+<td>действие или процесс сценария</td>
+</tr>
+<tr>
+<td>Связь предшествования</td>
+<td>сплошная стрелка</td>
+<td>работа-источник завершается до начала работы-приёмника</td>
+</tr>
+<tr>
+<td>Перекрёсток «И»</td>
+<td>прямоугольник со знаком <strong>&amp;</strong></td>
+<td>все ветви выполняются (разветвление) или все должны завершиться (слияние)</td>
+</tr>
+<tr>
+<td>Перекрёсток «исключающее ИЛИ»</td>
+<td>прямоугольник со знаком <strong>X</strong></td>
+<td>выполняется ровно одна ветвь</td>
+</tr>
+<tr>
+<td>Перекрёсток «ИЛИ»</td>
+<td>прямоугольник со знаком <strong>O</strong></td>
+<td>выполняется одна или несколько ветвей</td>
+</tr>
+<tr>
+<td>Объект ссылки</td>
+<td>прямоугольник с типом ссылки</td>
+<td>ссылка на другую диаграмму, объект или примечание</td>
+</tr>
+</tbody>
+</table>
 <h2 id="_2">Правила составления<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Модель начинается с контекстной диаграммы <strong>A-0</strong>, где указываются цель моделирования и точка зрения.</li>
+<li>Модель IDEF0 начинается с контекстной диаграммы <strong>A-0</strong>, где указываются цель моделирования и точка зрения <a href="../../sources/#src-11">[11]</a>.</li>
 <li>Каждый блок декомпозируется на <strong>3–6</strong> блоков следующего уровня; нумерация иерархическая: A0 → A1…A4 → A11…</li>
-<li>У каждого блока обязательно есть <strong>управление и выход</strong>; вход может отсутствовать.</li>
+<li>У каждого блока IDEF0 обязательно есть <strong>управление и выход</strong>; вход может отсутствовать.</li>
 <li>Блоки располагаются «лестницей» по диагонали в порядке доминирования – сверху слева самый важный.</li>
-<li>Названия функций – глаголом, стрелок – существительными.</li>
-<li>Граничные стрелки дочерней диаграммы соответствуют стрелкам родительского блока.</li>
+<li>Названия функций – глаголом, стрелок – существительными; граничные стрелки дочерней диаграммы соответствуют стрелкам родительского блока.</li>
+<li>В IDEF3 каждое разветвление закрывается перекрёстком того же типа; у UOB – уникальный номер.</li>
 </ol>
-<h2 id="_3">Пример: декомпозиция функции «Обработать заказ на перевозку»<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">Пример: функция «Обработать заказ на перевозку»<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><strong>Контекстная диаграмма A-0</strong> – граница модели, цель и точка зрения:</p>
+<p><img alt="IDEF0 – контекстная диаграмма A-0" src="../../assets/img/idef0_context.svg" /></p>
+<p><strong>Диаграмма декомпозиции A0</strong> – четыре функции; граничные стрелки совпадают со стрелками A-0:</p>
 <p><img alt="IDEF0 – декомпозиция A0 ЛогиХаб" src="../../assets/img/idef0_logihub.svg" /></p>
+<p><strong>IDEF3</strong> – сценарий работ «от оплаты до закрытия заказа» с перекрёстками «И» и «исключающее ИЛИ»:</p>
+<p><img alt="IDEF3 – сценарий от оплаты до закрытия заказа" src="../../assets/img/idef3_logihub.svg" /></p>
 <div class="admonition note">
 <p class="admonition-title">Что видно и чего не видно</p>
 <p>IDEF0 хорошо показывает, <strong>чем управляется и кем выполняется</strong> каждая функция: расчёт счёта
 регулируется тарифами и договором и выполняется сервисом расчёта, доставка ограничивается
-окнами доставки. Условия («оплата не поступила») и точный порядок во времени не отображаются.</p>
+окнами доставки. Порядок во времени и условия («есть замечания при приёмке») добавляет IDEF3.</p>
 </div>
 <h2 id="_4">Ссылки<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ul>
-<li>FIPS PUB 183. Integration Definition for Function Modeling (IDEF0). – NIST, 1993. – URL: <a href="https://www.idef.com/idefo-function_modeling_method/">https://www.idef.com/idefo-function_modeling_method/</a></li>
-<li>IDEF0 // Wikipedia. – URL: <a href="https://en.wikipedia.org/wiki/IDEF0">https://en.wikipedia.org/wiki/IDEF0</a></li>
-<li>IDEF3 Process Description Capture Method // IDEF.com. – URL: <a href="https://www.idef.com/idef3-process-description-capture-method/">https://www.idef.com/idef3-process-description-capture-method/</a></li>
-</ul>
+<ol>
+<li>Integration Definition for Function Modeling (IDEF0) : Federal Information Processing Standards Publication 183 / National Institute of Standards and Technology. – Gaithersburg, 1993. – URL: <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/FIPS/fipspub183.pdf">https://nvlpubs.nist.gov/nistpubs/Legacy/FIPS/fipspub183.pdf</a> (дата обращения: 07.10.2026).</li>
+<li>Integration Definition for Information Modeling (IDEF1X) : Federal Information Processing Standards Publication 184 / National Institute of Standards and Technology. – Gaithersburg, 1993. – URL: <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/FIPS/fipspub184.pdf">https://nvlpubs.nist.gov/nistpubs/Legacy/FIPS/fipspub184.pdf</a> (дата обращения: 07.10.2026).</li>
+<li>IDEF3 – Process Description Capture Method // IDEF : Integrated DEFinition Methods : сайт. – URL: <a href="https://www.idef.com/idef3-process-description-capture-method/">https://www.idef.com/idef3-process-description-capture-method/</a> (дата обращения: 07.10.2026).</li>
+</ol>
 
 
 
@@ -1114,6 +1197,10 @@
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/fx.js?v=2"></script>
       
     
   </body>

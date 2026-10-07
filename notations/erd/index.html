@@ -55,7 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../assets/extra.css?v=2">
+    
+      <link rel="stylesheet" href="../../assets/fx.css?v=2">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -662,7 +664,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Пример: данные процесса обработки заказа
+        Пример: данные процесса обработки заказа (нотация «воронья лапка»)
       
     </span>
   </a>
@@ -869,7 +871,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Пример: данные процесса обработки заказа
+        Пример: данные процесса обработки заказа (нотация «воронья лапка»)
       
     </span>
   </a>
@@ -908,14 +910,20 @@
 
 
 <h1 id="erd">ERD – модель «сущность – связь»<a class="headerlink" href="#erd" title="Permanent link">&para;</a></h1>
+<div class="lh-stats">
+<div class="lh-stat"><span>Появилась</span><b>1976, П. Чен</b></div>
+<div class="lh-stat"><span>Нотации</span><b>Чена, «воронья лапка», IDEF1X</b></div>
+<div class="lh-stat"><span>Отвечает на вопрос</span><b>Какие данные хранить и как они связаны?</b></div>
+<div class="lh-stat"><span>Сложность</span><b>средняя</b></div>
+</div>
 <h2 id="_1">Описание<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><strong>ERD (Entity-Relationship Diagram)</strong> описывает <strong>структуру данных</strong> предметной области:
 объекты (сущности), их характеристики (атрибуты) и связи между ними. Модель предложена
-<strong>П. Ченом</strong> в 1976 году. Сегодня распространены нотации Чена (концептуальное
-моделирование) и <strong>«воронья лапка»</strong> (Crow's Foot) Г. Эверета, а также IDEF1X – для
-логических и физических моделей баз данных.</p>
+<strong>П. Ченом</strong> в 1976 году <a href="../../sources/#src-7">[7]</a>. Сегодня распространены нотации Чена (концептуальное
+моделирование) и <strong>«воронья лапка»</strong> (Crow's Foot) Г. Эверета, а также IDEF1X <a href="../../sources/#src-12">[12]</a> –
+для логических и физических моделей баз данных.</p>
 <p>В моделировании бизнес-процессов ERD отвечает на вопрос, <strong>о каких объектах процесс хранит
-информацию</strong>, и служит основой для проектирования базы данных автоматизируемой системы.</p>
+информацию</strong>, и служит основой для проектирования базы данных автоматизируемой системы <a href="../../sources/#src-20">[20]</a>.</p>
 <p><strong>Когда применять:</strong> проектирование базы данных, согласование терминов предметной области,
 анализ информационных объектов процесса.</p>
 <p><strong>Ограничения:</strong> не описывает действия, последовательность и участников процесса.</p>
@@ -949,9 +957,15 @@
 <td>уникальный идентификатор экземпляра</td>
 </tr>
 <tr>
+<td>Внешний ключ</td>
+<td>–</td>
+<td>отметка FK</td>
+<td>ссылка на первичный ключ другой сущности</td>
+</tr>
+<tr>
 <td>Связь</td>
 <td>ромб</td>
-<td>линия между сущностями</td>
+<td>линия между сущностями с глаголом</td>
 <td>отношение между сущностями</td>
 </tr>
 <tr>
@@ -971,62 +985,61 @@
 <li>Модель нормализуется (как правило, до третьей нормальной формы) – каждый факт хранится в одном месте.</li>
 <li>Вычисляемые значения (например, итоговая стоимость) не дублируются без необходимости.</li>
 </ol>
-<h2 id="_4">Пример: данные процесса обработки заказа<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>erDiagram
-    CLIENT ||--o{ ORDER : "оформляет"
-    ORDER ||--|{ CARGO : "включает"
-    WAREHOUSE ||--o{ CARGO : "хранит"
-    ORDER ||--o| ROUTE : "исполняется по"
-    VEHICLE ||--o{ ROUTE : "назначается"
-    DRIVER ||--o{ ROUTE : "выполняет"
-    ORDER ||--o{ DOCUMENT : "сопровождается"
-
-    CLIENT {
+<h2 id="_4">Пример: данные процесса обработки заказа (нотация «воронья лапка»)<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<pre class="lh-mermaid"><code>erDiagram
+    CLIENT["Клиент"] {
         uuid id PK
-        string name
-        string inn
+        string name "наименование"
+        string inn "ИНН"
     }
-    ORDER {
+    ORDER["Заказ"] {
         uuid id PK
         uuid client_id FK
-        string status
-        date planned_delivery
-        bool on_time
-        bool in_full
+        string status "статус"
+        date planned_delivery "плановая доставка"
+        bool on_time "On Time"
+        bool in_full "In Full"
     }
-    CARGO {
+    CARGO["Грузовое место"] {
         uuid id PK
         uuid order_id FK
         uuid warehouse_id FK
-        string cargo_type
-        decimal weight_kg
+        string cargo_type "тип груза"
+        decimal weight_kg "вес, кг"
     }
-    ROUTE {
+    ROUTE["Рейс"] {
         uuid id PK
         uuid order_id FK
         uuid vehicle_id FK
         uuid driver_id FK
-        int distance_km
+        int distance_km "расстояние, км"
     }
-    DOCUMENT {
+    DOCUMENT["Документ"] {
         uuid id PK
         uuid order_id FK
         string type "заявка, счёт, ТТН, акт"
-        date created_at
+        date created_at "дата"
     }
-    VEHICLE {
+    VEHICLE["Транспорт"] {
         uuid id PK
-        string plate
-        int capacity_kg
+        string plate "госномер"
+        int capacity_kg "грузоподъёмность"
     }
-    DRIVER {
+    DRIVER["Водитель"] {
         uuid id PK
-        string full_name
+        string full_name "ФИО"
     }
-    WAREHOUSE {
+    WAREHOUSE["Склад"] {
         uuid id PK
-        string address
-    }</code></pre>
+        string address "адрес"
+    }
+    CLIENT ||--o{ ORDER : "оформляет"
+    ORDER ||--|{ CARGO : "включает"
+    WAREHOUSE ||--o{ CARGO : "хранит"
+    ORDER ||--o| ROUTE : "исполняется по"
+    VEHICLE ||--o{ ROUTE : "назначается на"
+    DRIVER ||--o{ ROUTE : "выполняет"
+    ORDER ||--o{ DOCUMENT : "сопровождается"</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Что видно и чего не видно</p>
 <p>ERD показывает, что один клиент оформляет много заказов, заказ включает одно или несколько
@@ -1034,11 +1047,12 @@
 Как и когда эти данные появляются, по диаграмме понять нельзя.</p>
 </div>
 <h2 id="_5">Ссылки<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Chen P. P. The Entity-Relationship Model – Toward a Unified View of Data // ACM Transactions on Database Systems. – 1976. – Vol. 1, № 1. – P. 9–36.</li>
-<li>Entity relationship diagram syntax // Mermaid. – URL: <a href="https://mermaid.js.org/syntax/entityRelationshipDiagram.html">https://mermaid.js.org/syntax/entityRelationshipDiagram.html</a></li>
-<li>What is an Entity Relationship Diagram // Lucidchart. – URL: <a href="https://www.lucidchart.com/pages/er-diagrams">https://www.lucidchart.com/pages/er-diagrams</a></li>
-</ul>
+<ol>
+<li>Chen, P. P. The Entity-Relationship Model – Toward a Unified View of Data / P. P. Chen // ACM Transactions on Database Systems. – 1976. – Vol. 1, № 1. – P. 9-36.</li>
+<li>Integration Definition for Information Modeling (IDEF1X) : Federal Information Processing Standards Publication 184 / National Institute of Standards and Technology. – Gaithersburg, 1993. – URL: <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/FIPS/fipspub184.pdf">https://nvlpubs.nist.gov/nistpubs/Legacy/FIPS/fipspub184.pdf</a> (дата обращения: 07.10.2026).</li>
+<li>What Is an Entity Relationship Diagram? // Lucid : сайт. – URL: <a href="https://www.lucidchart.com/pages/er-diagrams">https://www.lucidchart.com/pages/er-diagrams</a> (дата обращения: 07.10.2026).</li>
+<li>Mermaid : diagramming and charting tool : сайт. – URL: <a href="https://mermaid.js.org">https://mermaid.js.org</a> (дата обращения: 07.10.2026).</li>
+</ol>
 
 
 
@@ -1144,6 +1158,10 @@
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/fx.js?v=2"></script>
       
     
   </body>

@@ -55,7 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../assets/extra.css?v=2">
+    
+      <link rel="stylesheet" href="../../assets/fx.css?v=2">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -908,14 +910,20 @@
 
 
 <h1 id="flow-chart-">Flow Chart – блок-схема<a class="headerlink" href="#flow-chart-" title="Permanent link">&para;</a></h1>
+<div class="lh-stats">
+<div class="lh-stat"><span>Появилась</span><b>1921, Ф. и Л. Гилбрет</b></div>
+<div class="lh-stat"><span>Стандарт</span><b>ISO 5807, ГОСТ 19.701-90</b></div>
+<div class="lh-stat"><span>Отвечает на вопрос</span><b>Какие шаги и в каком порядке?</b></div>
+<div class="lh-stat"><span>Сложность</span><b>низкая</b></div>
+</div>
 <h2 id="_1">Описание<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><strong>Блок-схема (Flow Chart)</strong> – графическое представление алгоритма или процесса в виде
-последовательности блоков, соединённых линиями потока. Нотация появилась в 1920-х годах
-(«flow process chart» Ф. и Л. Гилбрет) и стала стандартом для описания алгоритмов.
-Обозначения закреплены международным стандартом <strong>ISO 5807:1985</strong> и соответствующим ему
-<strong>ГОСТ 19.701-90</strong> «Схемы алгоритмов, программ, данных и систем».</p>
+последовательности блоков, соединённых линиями потока. Прообраз нотации – «flow process chart»
+Ф. и Л. Гилбрет (1921); позже блок-схемы стали стандартом описания алгоритмов. Обозначения закреплены
+международным стандартом <strong>ISO 5807:1985</strong> <a href="../../sources/#src-13">[13]</a> и соответствующим ему
+<strong>ГОСТ 19.701-90</strong> «Схемы алгоритмов, программ, данных и систем» <a href="../../sources/#src-1">[1]</a>.</p>
 <p><strong>Когда применять:</strong> описание простого линейного процесса или алгоритма с ветвлениями,
-инструкции для сотрудников, объяснение логики для неподготовленной аудитории.</p>
+инструкции для сотрудников, объяснение логики для неподготовленной аудитории <a href="../../sources/#src-19">[19]</a>.</p>
 <p><strong>Ограничения:</strong> не показывает, кто выполняет шаг, и плохо масштабируется на процессы с
 несколькими участниками и параллельной работой.</p>
 <h2 id="_2">Элементы нотации<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
@@ -930,7 +938,7 @@
 <tbody>
 <tr>
 <td>Терминатор</td>
-<td>овал (скруглённый прямоугольник)</td>
+<td>скруглённый прямоугольник (овал)</td>
 <td>начало и конец процесса</td>
 </tr>
 <tr>
@@ -941,7 +949,7 @@
 <tr>
 <td>Решение</td>
 <td>ромб</td>
-<td>проверка условия, один вход и два или более выхода</td>
+<td>проверка условия: один вход и два или более выхода</td>
 </tr>
 <tr>
 <td>Данные</td>
@@ -965,7 +973,7 @@
 </tr>
 <tr>
 <td>Линия потока</td>
-<td>линия (со стрелкой при нестандартном направлении)</td>
+<td>линия, стрелка – при направлении снизу вверх или справа налево</td>
 <td>порядок выполнения</td>
 </tr>
 </tbody>
@@ -973,26 +981,29 @@
 <h2 id="_3">Правила составления<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Схема имеет одну точку начала и хотя бы одну точку окончания.</li>
-<li>Основное направление – сверху вниз и слева направо; стрелки ставятся, если поток идёт в обратном направлении.</li>
+<li>Основное направление – сверху вниз и слева направо; стрелки обязательны, если поток идёт в обратном направлении <a href="../../sources/#src-1">[1]</a>.</li>
 <li>У блока «Решение» каждый выход подписывается («Да» / «Нет» или значение условия).</li>
 <li>Текст в блоках – кратко, в повелительном наклонении («Проверить заявку»).</li>
 <li>Линии не должны пересекаться без необходимости; для длинных связей используются соединители.</li>
 <li>Сложные фрагменты выносятся в отдельные схемы и показываются блоком «Предопределённый процесс».</li>
 </ol>
 <h2 id="_4">Пример: обработка заявки на перевозку<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TD
-    A([Начало]) --&gt; B[/Клиент вводит заявку/]
+<p>В примере использованы все основные символы: терминаторы, ввод данных, процессы, решения,
+документ и предопределённые процессы (комплектация и перевозка описаны отдельными схемами).</p>
+<pre class="lh-mermaid"><code>flowchart TD
+    A([Начало]) --&gt; B[/Ввести заявку на перевозку/]
     B --&gt; C[Проверить заявку]
     C --&gt; D{Заявка корректна?}
     D -- Нет --&gt; E[Запросить уточнение у клиента]
     E --&gt; B
     D -- Да --&gt; F[Рассчитать стоимость и срок]
     F --&gt; G[Сформировать договор-счёт]
-    G --&gt; H{Оплата за 3 дня?}
+    G --&gt; DOC@{ shape: doc, label: "Договор-счёт" }
+    DOC --&gt; H{Оплата поступила&lt;br&gt;за 3 дня?}
     H -- Нет --&gt; Z1([Заказ отменён])
-    H -- Да --&gt; I[[Комплектация на складе]]
-    I --&gt; J[[Перевозка]]
-    J --&gt; K{Есть замечания при приёмке?}
+    H -- Да --&gt; I[[Скомплектовать груз]]
+    I --&gt; J[[Выполнить перевозку]]
+    J --&gt; K{Есть замечания&lt;br&gt;при приёмке?}
     K -- Да --&gt; L[Рассмотреть претензию]
     K -- Нет --&gt; M[Подписать акт приёмки]
     L --&gt; N[Закрыть заказ]
@@ -1004,11 +1015,12 @@
 понять, какой шаг выполняет клиент, а какой – склад или менеджер.</p>
 </div>
 <h2 id="_5">Ссылки<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li>ISO 5807:1985. Information processing – Documentation symbols and conventions for data, program and system flowcharts. – URL: <a href="https://www.iso.org/standard/11955.html">https://www.iso.org/standard/11955.html</a></li>
-<li>What is a Flowchart // Lucidchart. – URL: <a href="https://www.lucidchart.com/pages/what-is-a-flowchart-tutorial">https://www.lucidchart.com/pages/what-is-a-flowchart-tutorial</a></li>
-<li>Flowchart syntax // Mermaid. – URL: <a href="https://mermaid.js.org/syntax/flowchart.html">https://mermaid.js.org/syntax/flowchart.html</a></li>
-</ul>
+<ol>
+<li>ГОСТ 19.701-90 (ИСО 5807-85). Единая система программной документации. Схемы алгоритмов, программ, данных и систем. Обозначения условные и правила выполнения : межгосударственный стандарт : утв. и введен в действие Постановлением Государственного комитета СССР по управлению качеством продукции и стандартам от 26 декабря 1990 г. № 3294 : взамен ГОСТ 19.002-80, ГОСТ 19.003-80 : дата введения 1992-01-01. – Москва : Стандартинформ, 2010. – 24 с.</li>
+<li>ISO 5807:1985. Information processing – Documentation symbols and conventions for data, program and system flowcharts, program network charts and system resources charts. – Geneva : International Organization for Standardization, 1985. – URL: <a href="https://www.iso.org/standard/11955.html">https://www.iso.org/standard/11955.html</a> (дата обращения: 07.10.2026).</li>
+<li>What Is a Flowchart? Symbols, Types and Examples // Lucid : сайт. – URL: <a href="https://www.lucidchart.com/pages/what-is-a-flowchart-tutorial">https://www.lucidchart.com/pages/what-is-a-flowchart-tutorial</a> (дата обращения: 07.10.2026).</li>
+<li>Mermaid : diagramming and charting tool : сайт. – URL: <a href="https://mermaid.js.org">https://mermaid.js.org</a> (дата обращения: 07.10.2026).</li>
+</ol>
 
 
 
@@ -1114,6 +1126,10 @@
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/fx.js?v=2"></script>
       
     
   </body>

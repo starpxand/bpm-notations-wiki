@@ -55,7 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/extra.css">
+      <link rel="stylesheet" href="../assets/extra.css?v=2">
+    
+      <link rel="stylesheet" href="../assets/fx.css?v=2">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -715,7 +717,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Что показывает каждая нотация
+        Подберите нотацию под свой вопрос
       
     </span>
   </a>
@@ -726,7 +728,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Сводная характеристика
+        Что показывает каждая нотация
       
     </span>
   </a>
@@ -737,7 +739,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Как выбрать
+        Сводная характеристика
       
     </span>
   </a>
@@ -746,6 +748,17 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как выбрать
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         Рекомендуемая связка для проекта автоматизации
@@ -820,7 +833,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Что показывает каждая нотация
+        Подберите нотацию под свой вопрос
       
     </span>
   </a>
@@ -831,7 +844,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Сводная характеристика
+        Что показывает каждая нотация
       
     </span>
   </a>
@@ -842,7 +855,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Как выбрать
+        Сводная характеристика
       
     </span>
   </a>
@@ -851,6 +864,17 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как выбрать
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         Рекомендуемая связка для проекта автоматизации
@@ -881,7 +905,29 @@
 
 
 <h1 id="_1">Сравнение и выбор нотации<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">Что показывает каждая нотация<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Подберите нотацию под свой вопрос<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="lh-pick">
+  <div class="lh-pick__q">
+    <button type="button" data-n="fc">Какие шаги и в каком порядке?</button>
+    <button type="button" data-n="bpmn">Кто, что и когда делает в сквозном процессе?</button>
+    <button type="button" data-n="rad">Как роли передают друг другу работу?</button>
+    <button type="button" data-n="idef">Что делает организация и чем это управляется?</button>
+    <button type="button" data-n="dfd">Откуда и куда движутся данные?</button>
+    <button type="button" data-n="erd">Какие данные хранить в базе?</button>
+    <button type="button" data-n="uml">Как устроена программная система?</button>
+  </div>
+  <div class="lh-pick__out lh-show"><p class="lh-pick__hint">Выберите вопрос – и wiki подскажет нотацию.</p></div>
+  <template data-n="fc"><div class="lh-ans"><b class="lh-ans__n">Flow Chart</b><div><p>Блок-схема – порядок шагов и решения, понятна без подготовки.</p><p><a href="../notations/flowchart/">Открыть раздел →</a></p></div></div></template>
+  <template data-n="bpmn"><div class="lh-ans"><b class="lh-ans__n">BPMN</b><div><p>Пулы и дорожки, события, шлюзы и документы – стандарт для сквозных процессов.</p><p><a href="../notations/bpmn/">Открыть раздел →</a></p></div></div></template>
+  <template data-n="rad"><div class="lh-ans"><b class="lh-ans__n">RAD</b><div><p>Роли, их действия и взаимодействия – видно каждую передачу работы.</p><p><a href="../notations/rad/">Открыть раздел →</a></p></div></div></template>
+  <template data-n="idef"><div class="lh-ans"><b class="lh-ans__n">IDEF0</b><div><p>Функции со входами, выходами, управлением и механизмами; порядок работ – IDEF3.</p><p><a href="../notations/idef/">Открыть раздел →</a></p></div></div></template>
+  <template data-n="dfd"><div class="lh-ans"><b class="lh-ans__n">DFD</b><div><p>Процессы, хранилища, внешние сущности и потоки данных между ними.</p><p><a href="../notations/dfd/">Открыть раздел →</a></p></div></div></template>
+  <template data-n="erd"><div class="lh-ans"><b class="lh-ans__n">ERD</b><div><p>Сущности, атрибуты, ключи и кардинальность связей – основа базы данных.</p><p><a href="../notations/erd/">Открыть раздел →</a></p></div></div></template>
+  <template data-n="uml"><div class="lh-ans"><b class="lh-ans__n">UML</b><div><p>Диаграммы деятельности, последовательности, состояний и классов для разработчиков.</p><p><a href="../notations/uml/">Открыть раздел →</a></p></div></div></template>
+</div>
+
+<h2 id="_3">Что показывает каждая нотация<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Наведите курсор на столбец, чтобы сравнить нотации по одному признаку.</p>
 <table>
 <thead>
 <tr>
@@ -927,9 +973,9 @@
 <td style="text-align: center;">◐</td>
 </tr>
 <tr>
-<td>IDEF0</td>
+<td>IDEF0 / IDEF3</td>
 <td style="text-align: center;">◐</td>
-<td style="text-align: center;">–</td>
+<td style="text-align: center;">◐</td>
 <td style="text-align: center;">◐</td>
 <td style="text-align: center;">–</td>
 <td style="text-align: center;">◐</td>
@@ -969,7 +1015,7 @@
 </tbody>
 </table>
 <p>● – основное назначение, ◐ – частично, – – не отображается.</p>
-<h2 id="_3">Сводная характеристика<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">Сводная характеристика<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1003,8 +1049,8 @@
 <td>средняя</td>
 </tr>
 <tr>
-<td>IDEF0</td>
-<td>функции организации</td>
+<td>IDEF0 / IDEF3</td>
+<td>функции и сценарии организации</td>
 <td>руководители, аналитики</td>
 <td>FIPS PUB 183</td>
 <td>средняя</td>
@@ -1013,7 +1059,7 @@
 <td>ERD</td>
 <td>данные</td>
 <td>аналитики, разработчики БД</td>
-<td>нотации Чена, IDEF1X</td>
+<td>нотации Чена, IDEF1X (FIPS PUB 184)</td>
 <td>средняя</td>
 </tr>
 <tr>
@@ -1032,18 +1078,18 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_4">Как выбрать<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TD
-    Q{Какой вопрос нужно ответить?}
-    Q --&gt;|Какие шаги и в каком порядке?| A{Есть несколько участников?}
+<h2 id="_5">Как выбрать<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<pre class="lh-mermaid"><code>flowchart TD
+    Q{На какой вопрос&lt;br&gt;нужно ответить?}
+    Q --&gt;|Какие шаги и в каком порядке?| A{Несколько участников?}
     A --&gt;|Нет| FC[Flow Chart]
     A --&gt;|Да, важны события и документы| BPMN[BPMN]
     A --&gt;|Да, важны взаимодействия ролей| RAD[RAD]
-    Q --&gt;|Что делает организация, чем это управляется?| IDEF[IDEF0]
+    Q --&gt;|Что делает организация,&lt;br&gt;чем это управляется?| IDEF[IDEF0 + IDEF3]
     Q --&gt;|Куда движутся данные?| DFD[DFD]
     Q --&gt;|Какие данные хранить?| ERD[ERD]
     Q --&gt;|Как устроена программная система?| UML[UML]</code></pre>
-<h2 id="_5">Рекомендуемая связка для проекта автоматизации<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">Рекомендуемая связка для проекта автоматизации<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>На примере платформы «ЛогиХаб»:</p>
 <ol>
 <li><strong>IDEF0</strong> – верхнеуровневая карта функций компании: что автоматизируем и какими правилами это ограничено.</li>
@@ -1163,6 +1209,10 @@
     
     
       <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
+      
+        <script src="../assets/fx.js?v=2"></script>
       
     
   </body>
